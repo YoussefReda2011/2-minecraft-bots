@@ -1,9 +1,8 @@
 const mineflayer = require('mineflayer');
 
-// حطينا الكوماند كامل لكل بوت براحتك
 const botsConfig = [
-  { username: 'MO_Khaled', command: '/login bot1123$$$ ', delay: 0 },
-  { username: 'ItzRealAli', command: '/login bot2123$$$ ', delay: 0 }
+  { username: 'MO_Khaled', command: '/login bot1123$$$', delay: 0 },
+  { username: 'ItzRealAli', command: '/login bot2123$$$', delay: 5000 }
 ];
 
 function createBot(config) {
@@ -15,13 +14,18 @@ function createBot(config) {
   });
 
   bot.on('spawn', () => {
-    console.log(`[+] البوت ${config.username} دخل السيرفر وثبت مكانه بسلام.`);
-    
-    setTimeout(() => {
-      // إرسال الكوماند اللي أنت كاتبه فوق بالظبط
-      bot.chat(config.command);
-      console.log(`[<] تم إرسال أمر تسجيل الدخول للبوت ${config.username}.`);
-    }, 4000);
+    console.log(`[+] البوت ${config.username} دخل السيرفر بنجاح.`);
+  });
+
+  // البوت هيقرا الشات أول ما يفتح، وأول ما يشوف كلمة تخص التسجيل هيبعت الأمر فوراً
+  bot.on('messagestr', (message) => {
+    const text = message.toLowerCase();
+    if (text.includes('login') || text.includes('register') || text.includes('تسجيل')) {
+      setTimeout(() => {
+        bot.chat(config.command);
+        console.log(`[<] تم إرسال أمر تسجيل الدخول للبوت ${config.username} بناءً على استجابة السيرفر.`);
+      }, 1000); // تأخير بسيط جداً ثانية واحدة بعد ظهور الرسالة لضمان الاستقرار
+    }
   });
 
   bot.on('end', (reason) => {
@@ -34,7 +38,7 @@ function createBot(config) {
   });
 }
 
-console.log('🚀 جاري إطلاق البوتين بنظام الإصدار القديم والفاصل الآمن...');
+console.log('🚀 جاري إطلاق البوتين بنظام الاستماع الذكي للشات...');
 
 botsConfig.forEach((config) => {
   setTimeout(() => {
