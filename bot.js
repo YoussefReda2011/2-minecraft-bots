@@ -2,8 +2,8 @@ const mineflayer = require('mineflayer');
 
 // حطينا الكوماند كامل لكل بوت براحتك
 const botsConfig = [
-  { username: 'MO_Khaled', command: '/login bot1123$$$ bot1123$$$', delay: 0 },
-  { username: 'ItzRealAli', command: '/login bot2123$$$ bot2123$$$', delay: 0 }
+  { username: 'MO_Khaled', command: '/login bot1123$$$ ', delay: 0 },
+  { username: 'ItzRealAli', command: '/login bot2123$$$ ', delay: 0 }
 ];
 
 function createBot(config) {
