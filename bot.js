@@ -2,8 +2,8 @@ const mineflayer = require('mineflayer');
 
 // إعدادات البوتين، مع إضافة كلمة المرور (password) بشكل مستقل لكل بوت
 const botsConfig = [
-  { username: 'afk_bot_1', password: 'login bot1123$$$', delay: 0 },
-  { username: 'afk_bot_2', password: 'login bot2123$$$', delay: 0 } // تقدر تغير كلمة مرور البوت الثاني براحتك
+  { username: 'MO_Khaled', password: '/login bot1123$$$', delay: 0 },
+  { username: 'ItzRealAli', password: '/login bot2123$$$', delay: 0 } // تقدر تغير كلمة مرور البوت الثاني براحتك
 ];
 
 function createBot(config) {
