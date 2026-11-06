@@ -1,9 +1,9 @@
 const mineflayer = require('mineflayer');
 
-// إعدادات البوتين بأسماء مختلفة وفاصل زمني 5 ثواني
+// إعدادات البوتين، مع إضافة كلمة المرور (password) بشكل مستقل لكل بوت
 const botsConfig = [
-  { username: 'afk_bot_1', delay: 0 },
-  { username: 'afk_bot_2', delay: 5000 }
+  { username: 'afk_bot_1', password: 'bot1123$$$', delay: 0 },
+  { username: 'afk_bot_2', password: 'bot2123$$$', delay: 0 } // تقدر تغير كلمة مرور البوت الثاني براحتك
 ];
 
 function createBot(config) {
@@ -18,8 +18,9 @@ function createBot(config) {
     console.log(`[+] البوت ${config.username} دخل السيرفر وثبت مكانه بسلام.`);
     
     setTimeout(() => {
-      bot.chat('/login youssef123$$$');
-      console.log(`[<] تم إرسال كلمة المرور للبوت ${config.username}.`);
+      // استخدام كلمة المرور الخاصة بكل بوت من الإعدادات فوق تلقائياً
+      bot.chat(`/login ${config.password} ${config.password}`);
+      console.log(`[<] تم إرسال أمر تسجيل الدخول للبوت ${config.username}.`);
     }, 4000);
   });
 
